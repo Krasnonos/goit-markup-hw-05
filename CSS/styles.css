@@ -605,13 +605,23 @@ color: #212121;
     left: 0;
     width: 100vw;
     min-height: 100vh;
+    transition: opacity 600ms var(--cube), visability var(--time) var(--cube);
     background-color: rgba(0, 0, 0, 0.2);
+}
+.is-hidden{
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+.backdrop.is-hidden .modal{
+    transform: translate(-50%, -50%) perspective(400px) rotateX(60deg);
 }
 .modal{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: transform var(--time) var(--cube);
     width: 528px;
     min-height: 581px;
     background-color: #FFFFFF;
@@ -639,9 +649,4 @@ color: #212121;
 }
 .icon-close{
     fill: currentColor;
-}
-.is-hidden{
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
 }
